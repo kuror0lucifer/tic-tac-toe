@@ -2,5 +2,5 @@
 
 Working version of TicTacToe.
 
-link: https://bucolic-pika-088e01.netlify.app
+link: https://joyful-cucurucho-1e0f99.netlify.app
 
