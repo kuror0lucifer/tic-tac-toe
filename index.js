@@ -11,7 +11,19 @@ let hero = document.querySelector('.hero');
 let firstPlayerScore = 0;
 let secondPlayerScore = 0;
 
-scores.textContent = '0:0';
+let step = document.querySelector('.step');
+
+scores.textContent = '0 : 0';
+
+function steps() {
+    if (count % 2 == 0) {
+        step.textContent = `Ход ${firstPlayer}`;
+        console.log('1')
+    } else {
+        step.textContent = `Ход ${secondPlayer}`
+    }
+}
+
 for (let cell of cells) {
 
     cell.addEventListener('click', function step() {
@@ -19,14 +31,15 @@ for (let cell of cells) {
         this.textContent = ['X', 'O'][count % 2];
         count++;
 
+        steps();
             if (Victory(cells)) {
                 hero.textContent = `Победил ${count % 2 > 0 ? firstPlayer : secondPlayer}`;
                 if (count % 2 > 0) {
                     firstPlayerScore++;
-                    scores.textContent = `${firstPlayerScore}:${secondPlayerScore}`
+                    scores.textContent = `${firstPlayerScore} : ${secondPlayerScore}`
                 } else if (count % 2 == 0) {
                     secondPlayerScore++;
-                    scores.textContent = `${firstPlayerScore}:${secondPlayerScore}`;
+                    scores.textContent = `${firstPlayerScore} : ${secondPlayerScore}`;
                 }
                 reload();
             } else if (count == 9) {

@@ -19,11 +19,7 @@ body {
   font-weight: bold;
 }
 
-.score {
-  text-align: center;
-}
-
-.hero {
+.hero, .step, .score {
   text-align: center;
   width: 100%;
   height: 2vh;
