@@ -1,5 +1,6 @@
+function first(size) {
 
-let cells = document.querySelectorAll('#field td');
+let cells3x3 = document.querySelectorAll('#field td');
 let count = 0;
 
 let firstPlayer = prompt('', 'Первый игрок');
@@ -19,13 +20,12 @@ scores.textContent = '';
 function steps() {
     if (count % 2 == 0) {
         step.textContent = `Ход ${firstPlayer}`;
-        console.log('1')
     } else {
         step.textContent = `Ход ${secondPlayer}`
     }
 }
 
-for (let cell of cells) {
+for (let cell of cells3x3) {
 
     cell.addEventListener('click', function step() {
         if (this.textContent !== '') return;
@@ -33,7 +33,7 @@ for (let cell of cells) {
         count++;
 
         steps();
-            if (Victory(cells)) {
+            if (Victory(cells3x3)) {
                 hero.textContent = `Победил ${count % 2 > 0 ? firstPlayer : secondPlayer}`;
                 if (count % 2 > 0) {
                     firstPlayerScore++;
@@ -52,14 +52,14 @@ for (let cell of cells) {
     }
 
     function reload() {
-        for (let cell2 of cells) {
+        for (let cell2 of cells3x3) {
             cell2.textContent = '';
             count = 0;
         }
     
     }
 
-    function Victory(cells) {
+    function Victory(cells3x3) {
         let combins = [
             [0, 1, 2],
             [3, 4, 5],
@@ -72,13 +72,15 @@ for (let cell of cells) {
         ];
 
         for (let combin of combins) {
-            if (cells[combin[0]].textContent == cells[combin[1]].textContent &&
-                cells[combin[1]].textContent == cells[combin[2]].textContent &&
-                cells[combin[0]].textContent != '') {
+            if (cells3x3[combin[0]].textContent == cells3x3[combin[1]].textContent &&
+                cells3x3[combin[1]].textContent == cells3x3[combin[2]].textContent &&
+                cells3x3[combin[0]].textContent != '') {
                     return true;
                 }
         }
         return false;
     }
+}
+
 
 
