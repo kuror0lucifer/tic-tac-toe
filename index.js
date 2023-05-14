@@ -1,3 +1,4 @@
+
 let cells = document.querySelectorAll('#field td');
 let count = 0;
 
@@ -13,7 +14,7 @@ let secondPlayerScore = 0;
 
 let step = document.querySelector('.step');
 
-scores.textContent = '0 : 0';
+scores.textContent = '';
 
 function steps() {
     if (count % 2 == 0) {
@@ -49,6 +50,7 @@ for (let cell of cells) {
         })
 
     }
+
     function reload() {
         for (let cell2 of cells) {
             cell2.textContent = '';
@@ -78,4 +80,5 @@ for (let cell of cells) {
         }
         return false;
     }
+
 
